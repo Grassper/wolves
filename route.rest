@@ -1,0 +1,32 @@
+GET http://localhost:3000/
+
+###
+
+GET http://localhost:3000/6068b96062cfcc206c4237d1
+
+###
+
+POST http://localhost:3000/
+Content-Type: application/json
+
+{
+    "title": "Amazing photography",
+    "author": "Vadivazhagan",
+    "description": "Picture is taken from amazon forest",
+    "imageUrl": "https://images.unsplash.com/photo-1448375240586-882707db888b?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+}
+
+###
+
+DELETE http://localhost:3000/6068b6b5fd426a57a0fd8900
+
+###
+
+PATCH http://localhost:3000/6068b96062cfcc206c4237d1
+Content-Type: application/json
+
+{
+    "title": "Amazing videography",
+    "description": "Picture is taken from mangoorve forest",
+    "imageUrl": "https://images.unsplash.com/photo-1425913397330-cf8af2ff40a1?ixid=MXwxMjA3fDB8MHxwaG90by1yZWxhdGVkfDEzfHx8ZW58MHx8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+}
