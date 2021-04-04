@@ -68,6 +68,20 @@ router.delete("/post/:id", getPostById, async (req, res) => {
   }
 });
 
+// add comments to
+router.post("/post/:id/comments", getPostById, async (req, res) => {
+  const comment = {
+    content: req.body.content,
+  };
+  try {
+    res.post.comments = res.post.comments.concat(comment);
+    const updatedPost = await res.post.save();
+    res.json(updatedPost);
+  } catch (error) {
+    res.status(400).json({ message: error.message });
+  }
+});
+
 // get post by id
 async function getPostById(req, res, next) {
   let post;
