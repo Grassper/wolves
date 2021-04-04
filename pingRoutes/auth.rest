@@ -21,7 +21,7 @@ Content-Type: application/json
 ###
 
 GET  http://localhost:3000/users/profile
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDY5NTllNzAwZmQ2NzI0NGM4OGRiZWIiLCJpYXQiOjE2MTc1MTcwMzF9.NQI1i3-vkQvEB_4EmwdSG7uKYMsM_cUXQNKO_WhsDFI
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDY5NTllNzAwZmQ2NzI0NGM4OGRiZWIiLCJpYXQiOjE2MTc1MTk4OTd9.y0AhJY5H70I9lmUkX302xiX3hxDhIQu1Z4Bj0w7T8Ko
 
 ###
 
@@ -31,4 +31,4 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDY5NDVhM
 ###
 
 POST http://localhost:3000/users/logoutall
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDY5NDVhMWM2ODc4MjQxNmMwNWRmN2YiLCJpYXQiOjE2MTc1MTY5NDJ9.lLApcm4PWixv1IMfmeUAUlVwaItE6mqUFZBQtEZ2YWQ
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDY5NTllNzAwZmQ2NzI0NGM4OGRiZWIiLCJpYXQiOjE2MTc1MTk4OTd9.y0AhJY5H70I9lmUkX302xiX3hxDhIQu1Z4Bj0w7T8Ko

@@ -5,6 +5,9 @@ const router = express.Router();
 const postModel = require("../models/post.model");
 const userModel = require("../models/user.model");
 
+// importing middleware
+const authMiddleWare = require("../middlewares/auth.middleware");
+
 /* post routes*/
 
 // getting all post
@@ -23,7 +26,7 @@ router.get("/post/:id", getPostById, (req, res) => {
 });
 
 // creating one
-router.post("/post", async (req, res) => {
+router.post("/post", authMiddleWare, async (req, res) => {
   const post = new postModel({
     title: req.body.title,
     author: req.body.author,
@@ -39,7 +42,7 @@ router.post("/post", async (req, res) => {
 });
 
 // updating one
-router.patch("/post/:id", getPostById, async (req, res) => {
+router.patch("/post/:id", authMiddleWare, getPostById, async (req, res) => {
   if (req.body.title != null) {
     res.post.title = req.body.title;
   }
@@ -59,7 +62,7 @@ router.patch("/post/:id", getPostById, async (req, res) => {
 });
 
 // deleting one
-router.delete("/post/:id", getPostById, async (req, res) => {
+router.delete("/post/:id", authMiddleWare, getPostById, async (req, res) => {
   try {
     await res.post.remove();
     res.json({ message: "Post deleted successfully" });
@@ -69,18 +72,24 @@ router.delete("/post/:id", getPostById, async (req, res) => {
 });
 
 // add comments to
-router.post("/post/:id/comments", getPostById, async (req, res) => {
-  const comment = {
-    content: req.body.content,
-  };
-  try {
-    res.post.comments = res.post.comments.concat(comment);
-    const updatedPost = await res.post.save();
-    res.json(updatedPost);
-  } catch (error) {
-    res.status(400).json({ message: error.message });
+router.post(
+  "/post/:id/comments",
+  authMiddleWare,
+  getPostById,
+  async (req, res) => {
+    const comment = {
+      author: req.body.author,
+      content: req.body.content,
+    };
+    try {
+      res.post.comments = res.post.comments.concat(comment);
+      const updatedPost = await res.post.save();
+      res.json(updatedPost);
+    } catch (error) {
+      res.status(400).json({ message: error.message });
+    }
   }
-});
+);
 
 // get post by id
 async function getPostById(req, res, next) {
