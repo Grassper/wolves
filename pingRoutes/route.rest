@@ -1,12 +1,12 @@
-GET http://localhost:3000/
+GET http://localhost:3000/api/post
 
 ###
 
-GET http://localhost:3000/6068b96062cfcc206c4237d1
+GET http://localhost:3000/api/post/6068b96062cfcc206c4237d1
 
 ###
 
-POST http://localhost:3000/
+POST http://localhost:3000/api/post
 Content-Type: application/json
 
 {
@@ -18,11 +18,11 @@ Content-Type: application/json
 
 ###
 
-DELETE http://localhost:3000/6068b6b5fd426a57a0fd8900
+DELETE http://localhost:3000/api/post/6068ba53f0a81348406d4c83
 
 ###
 
-PATCH http://localhost:3000/6068b96062cfcc206c4237d1
+PATCH http://localhost:3000/api/post/606943910777a94ec0390b14
 Content-Type: application/json
 
 {

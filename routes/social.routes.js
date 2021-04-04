@@ -3,9 +3,12 @@ const router = express.Router();
 
 // importing models
 const postModel = require("../models/post.model");
+const userModel = require("../models/user.model");
+
+/* post routes*/
 
 // getting all post
-router.get("/", async (req, res) => {
+router.get("/post", async (req, res) => {
   try {
     const posts = await postModel.find();
     res.json(posts);
@@ -15,12 +18,12 @@ router.get("/", async (req, res) => {
 });
 
 // getting single post
-router.get("/:id", getPostById, (req, res) => {
-  res.send(res.post);
+router.get("/post/:id", getPostById, (req, res) => {
+  res.json(res.post);
 });
 
 // creating one
-router.post("/", async (req, res) => {
+router.post("/post", async (req, res) => {
   const post = new postModel({
     title: req.body.title,
     author: req.body.author,
@@ -36,7 +39,7 @@ router.post("/", async (req, res) => {
 });
 
 // updating one
-router.patch("/:id", getPostById, async (req, res) => {
+router.patch("/post/:id", getPostById, async (req, res) => {
   if (req.body.title != null) {
     res.post.title = req.body.title;
   }
@@ -56,7 +59,7 @@ router.patch("/:id", getPostById, async (req, res) => {
 });
 
 // deleting one
-router.delete("/:id", getPostById, async (req, res) => {
+router.delete("/post/:id", getPostById, async (req, res) => {
   try {
     await res.post.remove();
     res.json({ message: "Post deleted successfully" });
