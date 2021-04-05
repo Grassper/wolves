@@ -1,3 +1,5 @@
 export const editorTypes = {
   TOGGLE_EDITOR: "TOGGLE_EDITOR",
+  RESET_EDITOR: "RESET_EDITOR",
+  UPDATE_EDITOR: "UPDATE_EDITOR"
 };

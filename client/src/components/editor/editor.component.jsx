@@ -10,16 +10,17 @@ import { createStructuredSelector } from "reselect";
 
 // importing selectors
 import { selectCurrentUser } from "../../redux/user/user.selectors";
+import { selectEditorContent } from "../../redux/editor/editor.selectors";
 
 // importing actions
-import { toggleEditor } from "../../redux/editor/editor.actions";
+import { resetEditor } from "../../redux/editor/editor.actions";
 import { addPostAsyncStart } from "../../redux/post/post.actions";
 
-const Editor = ({ currentUser, toggleEditor, addPost }) => {
+const Editor = ({ currentUser, resetEditor, addPost, content }) => {
   const [postContent, setPostContent] = useState({
-    title: "",
-    description: "",
-    imageUrl: "",
+    title: (content) ? content.title: "",
+    description: (content) ? content.description: "",
+    imageUrl: (content) ? content.imageUrl: "",
   });
 
   const { title, description, imageUrl } = postContent;
@@ -30,7 +31,7 @@ const Editor = ({ currentUser, toggleEditor, addPost }) => {
       { title, author: currentUser.name, description, imageUrl },
       currentUser.token
     );
-    toggleEditor();
+    resetEditor();
   };
 
   const handleChange = (event) => {
@@ -78,12 +79,13 @@ const Editor = ({ currentUser, toggleEditor, addPost }) => {
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  toggleEditor: () => dispatch(toggleEditor()),
+  resetEditor: () => dispatch(resetEditor()),
   addPost: (obj, token) => dispatch(addPostAsyncStart(obj, token)),
 });
 
 const mapStateToProps = createStructuredSelector({
   currentUser: selectCurrentUser,
+  content: selectEditorContent,
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Editor);
