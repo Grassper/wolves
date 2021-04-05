@@ -63,7 +63,7 @@ export const addPostAsyncStart = (obj, token) => {
         body: JSON.stringify(obj),
       });
       const responseforAddition = await response.json();
-      console.log(responseforAddition)
+      console.log(responseforAddition);
       alert("post added successfully");
       dispatch(fetchPostCollectionAsyncStart());
     } catch (error) {
@@ -100,7 +100,7 @@ export const updatePostAsyncStart = (obj, id, token) => {
         body: JSON.stringify(obj),
       });
       const responseforupdation = await response.json();
-      console.log(responseforupdation)
+      console.log(responseforupdation);
       alert("update successfull");
       dispatch(fetchPostAsyncStart(id));
     } catch (error) {
@@ -133,12 +133,48 @@ export const deletePostAsyncStart = (id, token) => {
         headers: {
           "Content-Type": "application/json",
           Authorization: "Bearer " + token,
-        }
+        },
       });
       const responseforRemoval = await response.json();
       alert(responseforRemoval.message);
     } catch (error) {
       dispatch(deletePostfailure(error));
+    }
+  };
+};
+
+//  adding comment to server
+export const addCommentStart = () => ({
+  type: postTypes.FETCH_ADD_COMMENT_START,
+});
+
+export const addCommentSuccess = () => ({
+  type: postTypes.FETCH_ADD_COMMENT_SUCCESS,
+});
+
+export const addCommentfailure = (errorMessage) => ({
+  type: postTypes.FETCH_ADD_COMMENT_FAILURE,
+  payload: errorMessage,
+});
+
+export const addCommentAsyncStart = (id, obj) => {
+  return async (dispatch) => {
+    dispatch(addCommentStart());
+    try {
+      const URL = process.env.REACT_APP_BASE_URL + `/api/post/${id}/comments`;
+      const response = await fetch(URL, {
+        method: "post",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(obj),
+      });
+      const responseforcomment = await response.json();
+      alert("comment added successfully")
+      console.log(responseforcomment);
+      dispatch(fetchPostAsyncStart(id));
+    } catch (error) {
+      dispatch(addCommentfailure(error));
     }
   };
 };

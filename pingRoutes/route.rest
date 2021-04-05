@@ -39,9 +39,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDZhZTQ2N
 
 POST http://localhost:3000/api/post/606963c186bfa90944125611/comments
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDY5NTllNzAwZmQ2NzI0NGM4OGRiZWIiLCJpYXQiOjE2MTc1MTcwMzF9.NQI1i3-vkQvEB_4EmwdSG7uKYMsM_cUXQNKO_WhsDFI
 
 {   
-    "author": "Steven rapido",
     "content": "It looks scary"
 }

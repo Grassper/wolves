@@ -10,7 +10,10 @@ import {
   fetchPostAsyncStart,
   clearPostState,
 } from "../../redux/individualPost/individualPost.actions";
-import { deletePostAsyncStart } from "../../redux/post/post.actions";
+import {
+  deletePostAsyncStart,
+  addCommentAsyncStart,
+} from "../../redux/post/post.actions";
 import {
   updateEditor,
   toggleEditor,
@@ -41,6 +44,7 @@ const PostPage = ({
   toggleEditor,
   resetEditor,
   deletePost,
+  addComment,
 }) => {
   useEffect(() => {
     clearPostState();
@@ -86,7 +90,10 @@ const PostPage = ({
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log(comment);
+    addComment(post._id, { content: comment });
+    setComment({
+      comment: "",
+    });
   };
 
   const handleChange = (event) => {
@@ -147,7 +154,7 @@ const PostPage = ({
       </form>
       {post.comments.length !== 0 ? (
         <div className="commentsContainer">
-          {comments.map((comment) => {
+          {post.comments.map((comment) => {
             return <Comment key={comment.id} content={comment.content} />;
           })}
         </div>
@@ -168,6 +175,7 @@ const mapDispatchToProps = (dispatch) => ({
   toggleEditor: () => dispatch(toggleEditor()),
   resetEditor: () => dispatch(resetEditor()),
   deletePost: (id, token) => dispatch(deletePostAsyncStart(id, token)),
+  addComment: (id, obj) => dispatch(addCommentAsyncStart(id, obj)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(PostPage);

@@ -4,4 +4,9 @@
     display: grid;
     place-items: center;
     box-shadow: rgba(19, 15, 235, 0.1) 1px 2px 20px;
+    background-color: white;
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    right: 0;
 }
