@@ -1,9 +1,33 @@
-.header {
-    text-transform: capitalize;
-    text-align: center;
+.headerContainer {
     margin: 3rem 0px;
-    font-weight: bolder;
-    font-size: 2rem;
     width: 100%;
     height: auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.header{
+    text-decoration: none;
+    color: black;
+    font-weight: 600;
+    font-size: 2rem;
+    text-transform: capitalize;
+    align-self: center;
+    justify-self: center;
+}
+
+.headerSignIn{
+    text-decoration: none;
+    padding: 10px 40px;
+    border: 2px solid black;
+    color: white;
+    background-color: black;
+    font-weight: 400;
+    font-size: 1.2rem;
+}
+
+.headerSignIn:hover{
+    background-color: white;
+    color: black;
 }

@@ -7,8 +7,15 @@ import PostPage from "./pages/postpage/postpage.pages";
 import Header from "./components/header/header.component";
 import SignInAndSignUP from "./pages/Sign-inandSign-up/Sign-in-and-Sign-up.component";
 
+// importing redux
+import { connect } from "react-redux";
+import { createStructuredSelector } from "reselect";
+
 // importing router
 import { Route, Switch, Redirect } from "react-router-dom";
+
+// importing selectors
+import { selectCurrentUser } from "./redux/user/user.selectors";
 
 const App = ({ currentUser }) => {
   return (
@@ -31,4 +38,8 @@ const App = ({ currentUser }) => {
   );
 };
 
-export default App;
+const mapStateToProps = createStructuredSelector({
+  currentUser: selectCurrentUser,
+});
+
+export default connect(mapStateToProps)(App);

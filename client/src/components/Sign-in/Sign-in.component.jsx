@@ -5,8 +5,9 @@ import { connect } from "react-redux";
 import FormInput from "../form-input/form-input.component";
 import CustomButton from "../custom-button/custom-button.component";
 
+import {userSignAsyncStart} from "../../redux/user/user.actions"
 
-const SignIn = () => {
+const SignIn = ({emailSignInStart}) => {
 
     const [userCredentials,setUserCredentials] = useState({
         email:'',
@@ -17,6 +18,7 @@ const SignIn = () => {
 
     const handleSubmit = async event =>{
         event.preventDefault();
+        emailSignInStart(email, password)
     }
 
     const handleChange = (event) =>{
@@ -51,9 +53,8 @@ const SignIn = () => {
         )
 }
 
-// const mapDispatchToProps = dispatch => ({
-//     googleSignInStart: () => dispatch(googleSignInStart()),
-//     emailSignInStart: (email, password) => dispatch(emailSignInStart({email, password}))
-// });
+const mapDispatchToProps = dispatch => ({
+    emailSignInStart: (email, password) => dispatch(userSignAsyncStart(email, password))
+});
 
-export default connect(null,null)(SignIn);
+export default connect(null,mapDispatchToProps)(SignIn);

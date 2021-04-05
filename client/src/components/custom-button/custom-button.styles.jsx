@@ -1,15 +1,5 @@
 import styled,{css} from "styled-components";
 
-const isGoogleSignInStyles = css`
-    background-color: #0F9D58;
-    color: white;
-    border: none;
-    
-    &:hover{
-    background-color: #0b6e3e;
-    }
-`
-
 const invertedStyles = css`
     background-color: white;
     color: black;
@@ -34,9 +24,6 @@ const buttonStyles = css`
 `
 
 const getButtonStyles = props => {
-    if(props.isGoogleSignIn){
-        return isGoogleSignInStyles
-    }
     return props.inverted ? invertedStyles : buttonStyles
 }
 
