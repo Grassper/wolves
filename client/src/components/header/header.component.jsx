@@ -12,10 +12,11 @@ import { selectCurrentUser } from "../../redux/user/user.selectors";
 
 // importing actions
 import { userSignOutAsyncStart } from "../../redux/user/user.actions";
+import { toggleEditor } from "../../redux/editor/editor.actions";
 
 import CustomButton from "../custom-button/custom-button.component";
 
-const Header = ({ currentUser, signOut }) => {
+const Header = ({ currentUser, signOut,toggleEditor }) => {
   const signOutHandler = () => {
     signOut(currentUser.token);
   };
@@ -29,9 +30,15 @@ const Header = ({ currentUser, signOut }) => {
           Log in
         </Link>
       ) : (
-        <CustomButton type="button" onClick={signOutHandler}>
-          Log out
-        </CustomButton>
+        <div className="headerButtonContainer">
+          <CustomButton type="button" onClick={toggleEditor} inverted>
+            Add Post
+          </CustomButton>
+          <div className="headerSeparator"></div>
+          <CustomButton type="button" onClick={signOutHandler}>
+            Log out
+          </CustomButton>
+        </div>
       )}
     </div>
   );
@@ -39,6 +46,7 @@ const Header = ({ currentUser, signOut }) => {
 
 const mapDispatchToProps = (dispatch) => ({
   signOut: (token) => dispatch(userSignOutAsyncStart(token)),
+  toggleEditor: () => dispatch(toggleEditor())
 });
 
 const mapStateToProps = createStructuredSelector({

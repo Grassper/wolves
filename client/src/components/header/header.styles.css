@@ -31,3 +31,13 @@
     background-color: white;
     color: black;
 }
+
+.headerButtonContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.headerSeparator{
+    padding: 10px;
+}

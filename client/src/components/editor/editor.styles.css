@@ -1,0 +1,7 @@
+.editor-container{
+    height: 100vh;
+    width: 25%;
+    display: grid;
+    place-items: center;
+    box-shadow: rgba(19, 15, 235, 0.1) 1px 2px 20px;
+}

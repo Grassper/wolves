@@ -32,3 +32,39 @@ export const fetchPostCollectionAsyncStart = () => {
     }
   };
 };
+
+//  add post to server
+export const addPostStart = () => ({
+  type: postTypes.FETCH_ADD_POST_START,
+});
+
+export const addPostSuccess = () => ({
+  type: postTypes.FETCH_ADD_POST_SUCCESS,
+});
+
+export const addPostfailure = (errorMessage) => ({
+  type: postTypes.FETCH_ADD_POST_FAILURE,
+  payload: errorMessage,
+});
+
+export const addPostAsyncStart = (obj, token) => {
+  return async (dispatch) => {
+    dispatch(addPostStart());
+    try {
+      const URL = process.env.REACT_APP_BASE_URL + "/api/post/";
+      const response = await fetch(URL, {
+        method: "post",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: "Bearer " + token,
+        },
+        body: JSON.stringify(obj),
+      });
+      const responseArray = await response.json();
+      console.log(responseArray);
+      dispatch(fetchPostCollectionAsyncStart());
+    } catch (error) {
+      dispatch(addPostfailure(error));
+    }
+  };
+};
