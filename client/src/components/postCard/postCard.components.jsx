@@ -1,10 +1,9 @@
 import React from "react";
 import "./postCard.styles.css";
 import SocialMediaButtons from "react-social-media-buttons";
+import { withRouter } from "react-router-dom";
 
-
-
-const PostCard = ({ _id, title, description, imageUrl}) => {
+const PostCard = ({ _id, title, description, imageUrl, history}) => {
   return (
     <div className="post">
       <div className="post-card">
@@ -18,7 +17,7 @@ const PostCard = ({ _id, title, description, imageUrl}) => {
           <p
             className="post-title"
             onClick={() => {
-              console.log(_id);
+              history.push(`/${_id}`)
             }}
           >
             {title.substring(0, 60)}..
@@ -48,4 +47,4 @@ const PostCard = ({ _id, title, description, imageUrl}) => {
   );
 };
 
-export default PostCard;
+export default withRouter(PostCard);

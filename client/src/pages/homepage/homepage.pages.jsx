@@ -12,7 +12,7 @@ import { fetchPostCollectionAsyncStart } from "../../redux/post/post.actions";
 import PostCard from "../../components/postCard/postCard.components";
 
 // importing selector
-import { selectPost } from "../../redux/post/post.selectors";
+import { selectPostArray } from "../../redux/post/post.selectors";
 
 // importing off the self
 import Skeleton from "react-loading-skeleton";
@@ -67,7 +67,7 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 const mapStateToProps = createStructuredSelector({
-  postArray: selectPost,
+  postArray: selectPostArray,
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Homepage);

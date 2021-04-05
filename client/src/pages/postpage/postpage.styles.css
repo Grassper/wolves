@@ -1,0 +1,55 @@
+.postPageContainer{
+    width: 33%;
+    margin: 0 auto;
+    height: 80vh;
+    box-shadow: rgba(19, 15, 235, 0.1) 1px 2px 20px;
+}
+
+.postPage-image{
+    height: 50%;
+    width: 100%;
+    background-size: cover;
+    background-position: center center;
+    background-color: var(--background-color);
+}
+
+.postPage-content{
+   height: 50%;
+   padding: 1rem;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-around;
+}
+
+.postPage-title{
+    font-size: 1.25rem;
+    font-weight: 700;
+    line-height: 150%;
+    cursor: pointer;
+    transition: 0.2s;
+    -webkit-transition: 0.2s;
+    -moz-transition: 0.2s;
+    -ms-transition: 0.2s;
+    -o-transition: 0.2s;
+}
+
+.postPage-description{
+    line-height: 150%;
+    color: rgba(0,0,0,0.8);
+}
+
+.loader-PostPage{
+    width: 33%;
+    height: 50vh;
+    display: flex;
+    margin: 1rem;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+.loader-Container-PostPage{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
