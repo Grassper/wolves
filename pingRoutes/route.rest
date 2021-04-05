@@ -37,7 +37,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDZhZTQ2N
 
 ###
 
-POST http://localhost:3000/api/post/606963c186bfa90944125611/comments
+POST http://localhost:5000/api/post/606b174bb76e4d59d444f5cc/comments
 Content-Type: application/json
 
 {   
