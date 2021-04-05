@@ -42,7 +42,7 @@ router.post("/post", authMiddleWare, async (req, res) => {
 });
 
 // updating one
-router.patch("/post/:id", authMiddleWare, getPostById, async (req, res) => {
+router.put("/post/:id", authMiddleWare, getPostById, async (req, res) => {
   if (req.body.title != null) {
     res.post.title = req.body.title;
   }

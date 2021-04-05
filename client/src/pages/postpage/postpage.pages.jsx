@@ -13,6 +13,12 @@ import {
   clearPostState,
 } from "../../redux/individualPost/individualPost.actions";
 
+import {
+  updateEditor,
+  toggleEditor,
+  resetEditor,
+} from "../../redux/editor/editor.actions";
+
 // importing selectors
 import { selectPost } from "../../redux/individualPost/individualPost.selectors";
 import { selectCurrentUser } from "../../redux/user/user.selectors";
@@ -22,7 +28,16 @@ import Skeleton from "react-loading-skeleton";
 
 import CustomButton from "../../components/custom-button/custom-button.component";
 
-const PostPage = ({ post, match, fetchPost, clearPostState, currentUser }) => {
+const PostPage = ({
+  post,
+  match,
+  fetchPost,
+  clearPostState,
+  currentUser,
+  updateEditor,
+  toggleEditor,
+  resetEditor,
+}) => {
   useEffect(() => {
     clearPostState();
     fetchPost(match.params.postId);
@@ -44,21 +59,24 @@ const PostPage = ({ post, match, fetchPost, clearPostState, currentUser }) => {
   }
 
   const editHandler = () => {
+    resetEditor();
+    updateEditor({
+      _id: post._id,
+      title: post.title,
+      description: post.description,
+      imageUrl: post.imageUrl,
+    });
+    toggleEditor();
+  };
 
-  }
-
-  const deleteHandler = () => {
-
-  }
+  const deleteHandler = () => {};
 
   return (
     <div className="postPageContainer">
       <div
         className="postPage-image"
         style={{
-          backgroundImage: `URL(
-            https://images.unsplash.com/photo-1448375240586-882707db888b?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80
-            )`,
+          backgroundImage: `URL(${post.imageUrl})`,
         }}
       ></div>
       <div className="postPage-content">
@@ -86,7 +104,7 @@ const PostPage = ({ post, match, fetchPost, clearPostState, currentUser }) => {
         />
         {currentUser ? (
           <div className="PostPageButtonContainer">
-            <CustomButton type="button" onClick={editHandler} >
+            <CustomButton type="button" onClick={editHandler}>
               Edit Post
             </CustomButton>
             <div className="headerSeparator"></div>
@@ -108,6 +126,9 @@ const mapStateToProps = createStructuredSelector({
 const mapDispatchToProps = (dispatch) => ({
   fetchPost: (id) => dispatch(fetchPostAsyncStart(id)),
   clearPostState: () => dispatch(clearPostState()),
+  updateEditor: (content) => dispatch(updateEditor(content)),
+  toggleEditor: () => dispatch(toggleEditor()),
+  resetEditor: () => dispatch(resetEditor()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(PostPage);

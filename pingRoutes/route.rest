@@ -9,7 +9,7 @@ GET http://localhost:3000/api/post/6069638e86bfa90944125610
 
 POST http://localhost:5000/api/post
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDY5NTllNzAwZmQ2NzI0NGM4OGRiZWIiLCJpYXQiOjE2MTc2MDM4MTF9.6GnvwLWmv9whMTbfMkjnfcNpp9EV-EBZSN99mJy4CF8
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDZhZTQ2N2NlNWQ5NzJmZTQ2OWI4M2YiLCJpYXQiOjE2MTc2Mjg5NzV9.Ny9P-lpo51MIOORgFqYHPCLFADXQni2DJLwfxIBKRr0
 
 {
     "title": "yellow screen",
@@ -19,15 +19,15 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDY5NTllN
 }
 
 ###
-
+                
 DELETE http://localhost:3000/api/post/6069638e86bfa90944125610
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDY5NTllNzAwZmQ2NzI0NGM4OGRiZWIiLCJpYXQiOjE2MTc1MTcwMzF9.NQI1i3-vkQvEB_4EmwdSG7uKYMsM_cUXQNKO_WhsDFI
 
 ###
 
-PATCH http://localhost:3000/api/post/606963c186bfa90944125611
+PUT http://localhost:5000/api/post/606af7c4d70b5f510844117a
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDY5NTllNzAwZmQ2NzI0NGM4OGRiZWIiLCJpYXQiOjE2MTc1MTcwMzF9.NQI1i3-vkQvEB_4EmwdSG7uKYMsM_cUXQNKO_WhsDFI
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDZhZTQ2N2NlNWQ5NzJmZTQ2OWI4M2YiLCJpYXQiOjE2MTc2Mjg5NzV9.Ny9P-lpo51MIOORgFqYHPCLFADXQni2DJLwfxIBKRr0
 
 {
     "title": "Amazing videography",

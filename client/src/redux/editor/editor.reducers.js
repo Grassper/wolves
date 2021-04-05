@@ -14,7 +14,7 @@ const editorReducer = (state = INITIAL_STATE, action) => {
       };
     case editorTypes.RESET_EDITOR:
       return {
-        visible: false,
+        ...state,
         content: null,
       };
     case editorTypes.UPDATE_EDITOR:
