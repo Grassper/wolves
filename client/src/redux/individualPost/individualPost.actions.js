@@ -19,7 +19,7 @@ export const fetchPostAsyncStart = (id) => {
   return async (dispatch) => {
     dispatch(fetchPostStart());
     try {
-      const URL = process.env.REACT_APP_BASE_URL + `/api/post/${id}`;
+      const URL = process.env.REACT_APP_BASE_URL + `api/post/${id}`;
       const response = await fetch(URL, {
         headers: {
           Accept: "application/json",

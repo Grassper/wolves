@@ -19,7 +19,7 @@ export const userSignAsyncStart = (email, password) => {
   return async (dispatch) => {
     dispatch(userSignStart());
     try {
-      const URL = process.env.REACT_APP_BASE_URL + "/users/login";
+      const URL = process.env.REACT_APP_BASE_URL + "users/login";
       const response = await fetch(URL, {
         method: "post",
         headers: {
@@ -55,7 +55,7 @@ export const userRegistrationAsyncStart = (name, email, password) => {
   return async (dispatch) => {
     dispatch(userRegistrationStart());
     try {
-      const URL = process.env.REACT_APP_BASE_URL + "/users/register";
+      const URL = process.env.REACT_APP_BASE_URL + "users/register";
       const response = await fetch(URL, {
         method: "post",
         headers: {
@@ -90,7 +90,7 @@ export const userSignOutAsyncStart = (token) => {
   return async (dispatch) => {
     dispatch(userSignOutStart());
     try {
-      const URL = process.env.REACT_APP_BASE_URL + "/users/logoutall";
+      const URL = process.env.REACT_APP_BASE_URL + "users/logoutall";
       const response = await fetch(URL, {
         method: "post",
         headers: {
