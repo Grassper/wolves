@@ -11,8 +11,6 @@ const morgan = require("morgan");
 // fixing cors
 const cors = require("cors");
 
-// secure headers
-const helmet = require("helmet");
 
 // connecting to mongodb
 mongoose.connect(process.env.DATABASE_URL, {
@@ -26,7 +24,6 @@ db.once("open", () => console.log("Connected to Database"));
 
 // initialing middlewares
 app.use(compression());
-app.use(helmet());
 app.use(cors());
 app.use(morgan("combined"));
 app.use(express.json());
