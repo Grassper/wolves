@@ -1,7 +1,5 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import "./postpage.styles.css";
-
-import SocialMediaButtons from "react-social-media-buttons";
 
 // importing redux
 import { connect } from "react-redux";
@@ -12,9 +10,7 @@ import {
   fetchPostAsyncStart,
   clearPostState,
 } from "../../redux/individualPost/individualPost.actions";
-
 import { deletePostAsyncStart } from "../../redux/post/post.actions";
-
 import {
   updateEditor,
   toggleEditor,
@@ -27,8 +23,12 @@ import { selectCurrentUser } from "../../redux/user/user.selectors";
 
 // importing off the self
 import Skeleton from "react-loading-skeleton";
+import SocialMediaButtons from "react-social-media-buttons";
 
+// importing components
 import CustomButton from "../../components/custom-button/custom-button.component";
+import FormInput from "../../components/form-input/form-input.component";
+import Comment from "../../components/comment/comment.component";
 
 const PostPage = ({
   post,
@@ -46,6 +46,12 @@ const PostPage = ({
     clearPostState();
     fetchPost(match.params.postId);
   }, [fetchPost, match.params.postId, clearPostState]);
+
+  const [comments, setComment] = useState({
+    comment: "",
+  });
+
+  const { comment } = comments;
 
   if (!post) {
     return (
@@ -78,6 +84,16 @@ const PostPage = ({
     history.push(`/`);
   };
 
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    console.log(comment);
+  };
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setComment({ ...comments, [name]: value });
+  };
+
   return (
     <div className="postPageContainer">
       <div
@@ -91,6 +107,7 @@ const PostPage = ({
           {post.title}
         </p>
         <p className="postPage-description">{post.description}</p>
+        <div className="separator"></div>
         <SocialMediaButtons
           links={[
             `https://twitter.com/intent/tweet?text=${post.description} - ${post.author}`,
@@ -106,7 +123,6 @@ const PostPage = ({
           iconStyle={{ color: "#1DA1F2" }}
           openNewTab={true}
         />
-
         {currentUser ? (
           <div className="PostPageButtonContainer">
             <CustomButton type="button" onClick={editHandler}>
@@ -119,6 +135,23 @@ const PostPage = ({
           </div>
         ) : null}
       </div>
+      <form onSubmit={handleSubmit}>
+        <FormInput
+          type="text"
+          name="comment"
+          value={comment}
+          onChange={handleChange}
+          label="Comment"
+          required
+        />
+      </form>
+      {post.comments.length !== 0 ? (
+        <div className="commentsContainer">
+          {comments.map((comment) => {
+            return <Comment key={comment.id} content={comment.content} />;
+          })}
+        </div>
+      ) : null}
     </div>
   );
 };

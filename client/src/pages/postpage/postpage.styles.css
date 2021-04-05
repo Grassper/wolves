@@ -19,6 +19,7 @@
    display: flex;
    flex-direction: column;
    justify-content: space-around;
+   align-items: flex-start;
 }
 
 .postPage-title{
@@ -56,4 +57,11 @@
 
 .PostPageButtonContainer{
     display: flex;
+}
+
+.commentsContainer{
+    padding: 1rem;
+    background-color: white;
+    box-shadow: rgba(19, 15, 235, 0.1) 1px 2px 20px;
+    margin-bottom: 5rem;
 }

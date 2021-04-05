@@ -1,0 +1,10 @@
+.comment{
+    margin: 1rem;
+    display: flex;
+    align-items: center;
+}
+.comment-content{
+    margin-left: 1rem;
+    line-height: 150%;
+    color: rgba(0,0,0,0.8);
+}
