@@ -21,7 +21,7 @@ export const fetchPostCollectionAsyncStart = () => {
   return async (dispatch) => {
     dispatch(fetchPostCollectionStart());
     try {
-      const URL = process.env.REACT_APP_BASE_URL + "api/post/";
+      const URL = "https://nytwolves.herokuapp.com/api/post/";
       const response = await fetch(URL, {
         headers: {
           Accept: "application/json",
@@ -53,7 +53,7 @@ export const addPostAsyncStart = (obj, token) => {
   return async (dispatch) => {
     dispatch(addPostStart());
     try {
-      const URL = process.env.REACT_APP_BASE_URL + "api/post/";
+      const URL = "https://nytwolves.herokuapp.com/api/post/";
       const response = await fetch(URL, {
         method: "post",
         headers: {
@@ -90,7 +90,7 @@ export const updatePostAsyncStart = (obj, id, token) => {
   return async (dispatch) => {
     dispatch(updatePostStart());
     try {
-      const URL = process.env.REACT_APP_BASE_URL + `api/post/${id}`;
+      const URL = `https://nytwolves.herokuapp.com/api/post/${id}`;
       const response = await fetch(URL, {
         method: "put",
         headers: {
@@ -127,7 +127,7 @@ export const deletePostAsyncStart = (id, token) => {
   return async (dispatch) => {
     dispatch(deletePostStart());
     try {
-      const URL = process.env.REACT_APP_BASE_URL + `api/post/${id}`;
+      const URL = `https://nytwolves.herokuapp.com/api/post/${id}`;
       const response = await fetch(URL, {
         method: "delete",
         headers: {
@@ -162,7 +162,7 @@ export const addCommentAsyncStart = (id, obj) => {
   return async (dispatch) => {
     dispatch(addCommentStart());
     try {
-      const URL = process.env.REACT_APP_BASE_URL + `api/post/${id}/comments`;
+      const URL = `https://nytwolves.herokuapp.com/api/post/${id}/comments`;
       const response = await fetch(URL, {
         method: "post",
         headers: {
