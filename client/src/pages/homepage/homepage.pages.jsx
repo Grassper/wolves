@@ -25,7 +25,6 @@ const Homepage = ({ fetchCollection, postArray }) => {
   if (postArray.length === 0) {
     return (
       <div>
-        <div className="header">Photofolio.</div>
         <div className="loader-Container">
           <div className="loader">
             <Skeleton count={1} height={100} />
@@ -46,7 +45,6 @@ const Homepage = ({ fetchCollection, postArray }) => {
 
   return (
     <div>
-      <div className="header">Photofolio.</div>
       <div className="photofolio-container">
         {postArray.map((post) => {
           return (

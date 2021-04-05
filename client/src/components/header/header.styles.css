@@ -1,0 +1,9 @@
+.header {
+    text-transform: capitalize;
+    text-align: center;
+    margin: 3rem 0px;
+    font-weight: bolder;
+    font-size: 2rem;
+    width: 100%;
+    height: auto;
+}
