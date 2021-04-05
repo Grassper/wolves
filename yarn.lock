@@ -1317,6 +1317,11 @@ rc@^1.2.8:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
+react-social-media-buttons@^1.0.8:
+  version "1.0.8"
+  resolved "https://registry.yarnpkg.com/react-social-media-buttons/-/react-social-media-buttons-1.0.8.tgz#106f217eb10ce8363210caa47b0d4db4935324fb"
+  integrity sha512-6wyXpGeTjY6BXbAdFU9ozyJAMhTDud/qZLxASN+ydX0VQ8fhX2v9zxN2EIc8uc6DyHDe8bVpzFKAnEcE0MsgHw==
+
 read-pkg@^5.2.0:
   version "5.2.0"
   resolved "https://registry.yarnpkg.com/read-pkg/-/read-pkg-5.2.0.tgz#7bf295438ca5a33e56cd30e053b34ee7250c93cc"

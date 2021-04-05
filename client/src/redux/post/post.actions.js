@@ -26,8 +26,7 @@ export const fetchPostCollectionAsyncStart = () => {
         },
       });
       const responseArray = await response.json();
-      console.log(responseArray)
-      // dispatch(fetchPostCollectionSuccess(responseArray.results));
+      dispatch(fetchPostCollectionSuccess(responseArray));
     } catch (error) {
       dispatch(fetchPostCollectionfailure(error));
     }

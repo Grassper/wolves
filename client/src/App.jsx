@@ -1,37 +1,17 @@
-import logo from "./logo.svg";
+import React from "react";
 import "./App.css";
-import React, { useEffect } from "react";
 
-import { fetchPostCollectionAsyncStart } from "./redux/post/post.actions";
-// importing redux
-import { connect } from "react-redux";
+// importing components
+import Homepage from "./pages/homepage/homepage.pages";
 
-const App = ({fetchCollection}) => {
-  useEffect(() => {
-    fetchCollection();
-  }, [fetchCollection]);
+const App = () => {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="ApplicationContainer">
+        <Homepage />
+      </div>
     </div>
   );
 };
 
-const mapDispatchToProps = (dispatch) => ({
-  fetchCollection: () => dispatch(fetchPostCollectionAsyncStart()),
-});
-
-export default connect(null, mapDispatchToProps)(App);
+export default App;

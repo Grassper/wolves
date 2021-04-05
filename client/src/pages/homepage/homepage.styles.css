@@ -1,0 +1,29 @@
+.header {
+    text-transform: capitalize;
+    text-align: center;
+    margin: 3rem 0px;
+    font-weight: bolder;
+    font-size: 2rem;
+    width: 100%;
+    height: auto;
+}
+
+.photofolio-container{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: space-evenly;
+}
+
+.loader{
+    width: 33%;
+    height: 225px;
+    display: flex;
+    margin: 1rem;
+    flex-direction: column;
+}
+
+.loader-Container{
+    display: flex;
+    width: 100%;
+}
