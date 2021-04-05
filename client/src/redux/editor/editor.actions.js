@@ -13,3 +13,7 @@ export const updateEditor = (content) => ({
   type: editorTypes.UPDATE_EDITOR,
   payload: content
 })
+
+export const signOutTrigger = () => ({
+  type: editorTypes.SIGN_OUT_TRIGGER,
+})

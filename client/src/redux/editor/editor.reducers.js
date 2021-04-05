@@ -7,6 +7,11 @@ const INITIAL_STATE = {
 
 const editorReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
+    case editorTypes.SIGN_OUT_TRIGGER:
+      return {
+        visible: false,
+        content: null,
+      };
     case editorTypes.TOGGLE_EDITOR:
       return {
         ...state,

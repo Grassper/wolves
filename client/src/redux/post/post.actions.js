@@ -136,6 +136,7 @@ export const deletePostAsyncStart = (id, token) => {
         },
       });
       const responseforRemoval = await response.json();
+      dispatch(fetchPostCollectionAsyncStart());
       alert(responseforRemoval.message);
     } catch (error) {
       dispatch(deletePostfailure(error));
@@ -170,7 +171,7 @@ export const addCommentAsyncStart = (id, obj) => {
         body: JSON.stringify(obj),
       });
       const responseforcomment = await response.json();
-      alert("comment added successfully")
+      alert("comment added successfully");
       console.log(responseforcomment);
       dispatch(fetchPostAsyncStart(id));
     } catch (error) {
