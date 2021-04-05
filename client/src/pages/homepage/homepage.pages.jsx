@@ -54,6 +54,7 @@ const Homepage = ({ fetchCollection, postArray }) => {
               title={post.title}
               description={post.description}
               imageUrl={post.imageUrl}
+              author={post.author}
             />
           );
         })}
