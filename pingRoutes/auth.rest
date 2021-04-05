@@ -1,9 +1,9 @@
-POST  https://stark-falls-21177.herokuapp.com/users/register
+POST  http://localhost:3000/users/register
 Content-Type: application/json
 
 {
-    "name":"rapid",
-    "email":"rapid@gmail.com",
+    "name":"rapidd",
+    "email":"grasd@gmail.com",
     "password":"sample@1234"
 }
 
@@ -21,7 +21,7 @@ Content-Type: application/json
 ###
 
 GET  http://localhost:3000/users/profile
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDY5NTllNzAwZmQ2NzI0NGM4OGRiZWIiLCJpYXQiOjE2MTc1MTk4OTd9.y0AhJY5H70I9lmUkX302xiX3hxDhIQu1Z4Bj0w7T8Ko
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDY5NTllNzAwZmQ2NzI0NGM4OGRiZWIiLCJpYXQiOjE2MTc1Mzk4OTN9.WesH3m69nVIbPWFKgdFpljcGjrZfq9xJbzQZnHVrExs
 
 ###
 
@@ -31,4 +31,4 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDY5NDVhM
 ###
 
 POST http://localhost:3000/users/logoutall
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDY5NTllNzAwZmQ2NzI0NGM4OGRiZWIiLCJpYXQiOjE2MTc1MTk4OTd9.y0AhJY5H70I9lmUkX302xiX3hxDhIQu1Z4Bj0w7T8Ko
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MDY5NTllNzAwZmQ2NzI0NGM4OGRiZWIiLCJpYXQiOjE2MTc1Mzk4OTN9.WesH3m69nVIbPWFKgdFpljcGjrZfq9xJbzQZnHVrExs

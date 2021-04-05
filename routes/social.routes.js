@@ -74,11 +74,9 @@ router.delete("/post/:id", authMiddleWare, getPostById, async (req, res) => {
 // add comments to
 router.post(
   "/post/:id/comments",
-  authMiddleWare,
   getPostById,
   async (req, res) => {
     const comment = {
-      author: req.body.author,
       content: req.body.content,
     };
     try {
