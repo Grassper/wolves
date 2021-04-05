@@ -18,6 +18,8 @@ import CustomButton from "../custom-button/custom-button.component";
 
 const Header = ({ currentUser, signOut, toggleEditor,resetEditor }) => {
   const signOutHandler = () => {
+    resetEditor();
+    toggleEditor();
     signOut(currentUser.token);
   };
   const toggleHandler = () => {

@@ -13,6 +13,8 @@ import {
   clearPostState,
 } from "../../redux/individualPost/individualPost.actions";
 
+import { deletePostAsyncStart } from "../../redux/post/post.actions";
+
 import {
   updateEditor,
   toggleEditor,
@@ -32,11 +34,13 @@ const PostPage = ({
   post,
   match,
   fetchPost,
+  history,
   clearPostState,
   currentUser,
   updateEditor,
   toggleEditor,
   resetEditor,
+  deletePost,
 }) => {
   useEffect(() => {
     clearPostState();
@@ -69,7 +73,10 @@ const PostPage = ({
     toggleEditor();
   };
 
-  const deleteHandler = () => {};
+  const deleteHandler = () => {
+    deletePost(post._id, currentUser.token);
+    history.push(`/`);
+  };
 
   return (
     <div className="postPageContainer">
@@ -129,6 +136,7 @@ const mapDispatchToProps = (dispatch) => ({
   updateEditor: (content) => dispatch(updateEditor(content)),
   toggleEditor: () => dispatch(toggleEditor()),
   resetEditor: () => dispatch(resetEditor()),
+  deletePost: (id, token) => dispatch(deletePostAsyncStart(id, token)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(PostPage);

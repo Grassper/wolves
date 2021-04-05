@@ -62,8 +62,9 @@ export const addPostAsyncStart = (obj, token) => {
         },
         body: JSON.stringify(obj),
       });
-      const responseArray = await response.json();
-      console.log(responseArray);
+      const responseforAddition = await response.json();
+      console.log(responseforAddition)
+      alert("post added successfully");
       dispatch(fetchPostCollectionAsyncStart());
     } catch (error) {
       dispatch(addPostfailure(error));
@@ -98,11 +99,46 @@ export const updatePostAsyncStart = (obj, id, token) => {
         },
         body: JSON.stringify(obj),
       });
-      const responseArray = await response.json();
-      console.log("update successfull", responseArray);
+      const responseforupdation = await response.json();
+      console.log(responseforupdation)
+      alert("update successfull");
       dispatch(fetchPostAsyncStart(id));
     } catch (error) {
       dispatch(updatePostfailure(error));
+    }
+  };
+};
+
+//  delete from from server
+export const deletePostStart = () => ({
+  type: postTypes.FETCH_DElETE_POST_START,
+});
+
+export const deletePostSuccess = () => ({
+  type: postTypes.FETCH_DElETE_POST_SUCCESS,
+});
+
+export const deletePostfailure = (errorMessage) => ({
+  type: postTypes.FETCH_DElETE_POST_FAILURE,
+  payload: errorMessage,
+});
+
+export const deletePostAsyncStart = (id, token) => {
+  return async (dispatch) => {
+    dispatch(deletePostStart());
+    try {
+      const URL = process.env.REACT_APP_BASE_URL + `/api/post/${id}`;
+      const response = await fetch(URL, {
+        method: "delete",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: "Bearer " + token,
+        }
+      });
+      const responseforRemoval = await response.json();
+      alert(responseforRemoval.message);
+    } catch (error) {
+      dispatch(deletePostfailure(error));
     }
   };
 };
